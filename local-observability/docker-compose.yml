@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: local_observability_postgres
+    environment:
+      POSTGRES_DB: observability
+      POSTGRES_USER: obs_user
+      POSTGRES_PASSWORD: obs_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - obs_pgdata:/var/lib/postgresql/data
+
+volumes:
+  obs_pgdata:
